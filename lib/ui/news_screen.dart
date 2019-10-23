@@ -15,6 +15,8 @@ class _NewsScreenState extends State<NewsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("$topicName"),
+        centerTitle: true,
+        backgroundColor: Colors.purple[700],
       ),
     );
   }

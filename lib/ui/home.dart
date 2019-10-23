@@ -21,11 +21,12 @@ class _HomeState extends State<Home> {
       itemBuilder: (BuildContext context ,int index){
         return GestureDetector(
           child: Card(
-            
+            color: Colors.orangeAccent,
+            margin: EdgeInsets.fromLTRB(16, 25, 17, 0),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30.0)
+              borderRadius: BorderRadius.circular(20.0)
             ),
-            elevation: 15.0,
+            elevation: 5.0,
             child: Container(
               alignment: Alignment.center,
               margin: EdgeInsets.fromLTRB(0.0,10.0,0.0,10.0),
@@ -50,6 +51,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.purple[700],
       ),
       body: myGridView,
+      
     );
   }
 }
