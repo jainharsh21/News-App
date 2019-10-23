@@ -14,7 +14,11 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("$topicName"),
+        title: Text("$topicName",style: TextStyle(
+          fontFamily: 'Billabong',
+          fontSize: 35,
+          fontWeight: FontWeight.bold,
+        ),),
         centerTitle: true,
         backgroundColor: Colors.purple[700],
       ),

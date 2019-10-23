@@ -48,6 +48,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text("News App",style: TextStyle(
           fontFamily: 'Billabong',
+          fontWeight: FontWeight.bold,
           fontSize: 35.0,
         ),),
         centerTitle: true,
