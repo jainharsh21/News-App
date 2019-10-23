@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
       itemBuilder: (BuildContext context ,int index){
         return GestureDetector(
           child: Card(
-            color: Colors.orangeAccent,
+            color: Colors.purple,
             margin: EdgeInsets.fromLTRB(16, 25, 17, 0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0)
@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
             child: Container(
               alignment: Alignment.center,
               margin: EdgeInsets.fromLTRB(0.0,10.0,0.0,10.0),
-              child: Text(newsTopics[index]),
+              child: Text(newsTopics[index],style: TextStyle(fontFamily: 'Billabong',fontSize: 30.0,color: Colors.white),),
             ),
           ),
           onTap: (){
@@ -46,7 +46,10 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("News App"),
+        title: Text("News App",style: TextStyle(
+          fontFamily: 'Billabong',
+          fontSize: 35.0,
+        ),),
         centerTitle: true,
         backgroundColor: Colors.purple[700],
       ),
