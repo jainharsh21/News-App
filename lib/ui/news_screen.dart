@@ -14,18 +14,26 @@ class _NewsScreenState extends State<NewsScreen> {
   Map news;
   List articles;
   String topicName;
-  List titles;
-  String title="";
+  // List titles;
+  String title = "";
   String description = "";
   String urlToImage = "";
+  String title2 = "";
+  String description2 = "";
+  String urlToImage2 = "";
+  List<String> titles = [" ", " ", " ", " ", " "];
   _NewsScreenState(this.topicName);
 
   void showData() async {
     news = await getNews(util.apiId, topicName.toLowerCase());
     articles = news["articles"];
     title = articles[0]["title"];
-    description = articles[0]["description"]; 
-    urlToImage = articles[0]["urlToImage"];    
+    description = articles[0]["description"];
+    urlToImage = articles[0]["urlToImage"];
+    title2 = articles[1]["title"];
+    description2 = articles[1]["description"];
+    urlToImage2 = articles[1]["urlToImage"];
+    // titles.add(articles[0]["title"]);
   }
 
   @override
@@ -52,15 +60,24 @@ class _NewsScreenState extends State<NewsScreen> {
         body: ListView(
           children: <Widget>[
             RaisedButton(
-              child: Text("Get news on $topicName!"),
+              child: Text("Get Latest News On $topicName!"),
               onPressed: () async {
                 news = await getNews(util.apiId, topicName);
                 // articles = news['articles'][0]['title'];
                 // titles.add(news['articles'][0]['title']);
                 articles = news["articles"];
                 title = articles[0]["title"];
-                description = articles[0]["description"];    
+                description = articles[0]["description"];
                 urlToImage = articles[0]["urlToImage"];
+
+                title2 = articles[1]["title"];
+                description2 = articles[1]["description"];
+                urlToImage2 = articles[1]["urlToImage"];
+
+                for (var i = 0; i < 5; i++) {
+                  titles.insert(i,articles[i]["title"]);
+                }
+                // titles.insert(0,articles[0]["title"]);
 
                 print(articles[0]['title']);
                 setState(() {
@@ -68,19 +85,31 @@ class _NewsScreenState extends State<NewsScreen> {
                   title = title;
                   description = description;
                   urlToImage = urlToImage;
+                  titles = titles;
                 });
               },
             ),
-
             Image.network(urlToImage),
-
             Card(
               child: ListTile(
-                title: Text(title),
+                title: Text(titles[0]),
                 subtitle: Text(description),
               ),
-            )
-            
+            ),
+            Image.network(urlToImage2),
+            Card(
+              child: ListTile(
+                title: Text(titles[1]),
+                subtitle: Text(description2),
+              ),
+            ),
+            Image.network(urlToImage2),
+            Card(
+              child: ListTile(
+                title: Text(titles[2]),
+                subtitle: Text(description2),
+              ),
+            ),
           ],
         ));
   }
