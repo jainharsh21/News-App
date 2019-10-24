@@ -14,13 +14,15 @@ class _NewsScreenState extends State<NewsScreen> {
   Map news;
   List articles;
   String topicName;
+  List titles;
+  String title="";
   _NewsScreenState(this.topicName);
 
   void showData() async {
     news = await getNews(util.apiId, topicName.toLowerCase());
     articles = news["articles"];
-    // print(news.toString());
-    print(articles);
+    title = articles[0]["title"];
+  
   }
 
   @override
@@ -32,19 +34,42 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "$topicName",
-          style: TextStyle(
-            fontFamily: 'Billabong',
-            fontSize: 35,
-            fontWeight: FontWeight.bold,
+        appBar: AppBar(
+          title: Text(
+            "$topicName",
+            style: TextStyle(
+              fontFamily: 'Billabong',
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          centerTitle: true,
+          backgroundColor: Colors.black,
         ),
-        centerTitle: true,
-        backgroundColor: Colors.black,
-      ),
-    );
+        body: ListView(
+          children: <Widget>[
+            RaisedButton(
+              child: Text("Get news on $topicName!"),
+              onPressed: () async {
+                news = await getNews(util.apiId, topicName);
+                // articles = news['articles'][0]['title'];
+                // titles.add(news['articles'][0]['title']);
+                articles = news["articles"];
+                title = articles[0]["title"];
+                print(articles[0]['title']);
+                setState(() {
+                  if (!mounted) return;
+                  title = title;
+                });
+              },
+            ),
+            Card(
+              child: ListTile(
+                title: Text(title),
+              ),
+            )
+          ],
+        ));
   }
 
   Future<Map> getNews(String apiId, String topicName) async {
