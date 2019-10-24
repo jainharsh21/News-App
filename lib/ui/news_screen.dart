@@ -14,47 +14,21 @@ class _NewsScreenState extends State<NewsScreen> {
   Map news;
   List articles;
   String topicName;
-  // List titles;
   String title = "";
   String description = "";
   String urlToImage = "";
   String title2 = "";
   String description2 = "";
   String urlToImage2 = "";
-  // List<String> titles = new List(20);
   List<String> titles = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "];
-  List<String> descriptions = [
-    " ",
-    " ",
-    " ",
-    " ",
-    " ",
-    " ",
-    " ",
-    " ",
-    " ",
-    " "
-  ];
+  List<String> descriptions = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "];  
   List<String> urlToImages = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "];
 
   _NewsScreenState(this.topicName);
 
-  // void showData() async {
-  //   news = await getNews(util.apiId, topicName.toLowerCase());
-  //   articles = news["articles"];
-  //   title = articles[0]["title"];
-  //   description = articles[0]["description"];
-  //   urlToImage = articles[0]["urlToImage"];
-  //   title2 = articles[1]["title"];
-  //   description2 = articles[1]["description"];
-  //   urlToImage2 = articles[1]["urlToImage"];
-  //   // titles.add(articles[0]["title"]);
-  // }
-
   @override
   void initState() {
     super.initState();
-    // showData();
   }
 
   @override
@@ -78,23 +52,14 @@ class _NewsScreenState extends State<NewsScreen> {
               child: Text("Get Latest News On $topicName!"),
               onPressed: () async {
                 news = await getNews(util.apiId, topicName);
-                // articles = news['articles'][0]['title'];
-                // titles.add(news['articles'][0]['title']);
-                articles = news["articles"];
-                // title = articles[0]["title"];
-                // description = articles[0]["description"];
-                // urlToImage = articles[0]["urlToImage"];
 
-                // title2 = articles[1]["title"];
-                // description2 = articles[1]["description"];
-                // urlToImage2 = articles[1]["urlToImage"];
+                articles = news["articles"];
 
                 for (var i = 0; i < 10; i++) {
                   titles.insert(i, articles[i]["title"]);
                   descriptions.insert(i, articles[i]["description"]);
                   urlToImages.insert(i, articles[i]["urlToImage"]);
                 }
-                // titles.insert(0,articles[0]["title"]);
 
                 print(articles[0]['title']);
                 setState(() {
