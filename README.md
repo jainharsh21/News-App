@@ -6,8 +6,12 @@ The news are categorized based on topics like Business,Sports,Science,Health,Ent
 To refresh the news you can click on the buttoo at the top.
 All the news are from trusted sources from all around the country.
 
-## Screenshots
+## Working
 
+![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/44740658/67502384-6e2c2600-f6a3-11e9-85f1-b2113742d3db.gif)
+
+
+## Screenshots
 
 ### Main Screen
 ![WhatsApp Image 2019-10-24 at 8 54 42 PM](https://user-images.githubusercontent.com/44740658/67501545-150fc280-f6a2-11e9-8a74-4401cbf2ef56.jpeg)
