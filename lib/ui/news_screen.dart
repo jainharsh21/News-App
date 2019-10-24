@@ -22,6 +22,8 @@ class _NewsScreenState extends State<NewsScreen> {
   String description2 = "";
   String urlToImage2 = "";
   List<String> titles = [" ", " ", " ", " ", " "];
+  List<String> descriptions = [" ", " ", " ", " ", " "];
+  List<String> urlToImages = [" ", " ", " ", " ", " "];
   _NewsScreenState(this.topicName);
 
   void showData() async {
@@ -76,6 +78,9 @@ class _NewsScreenState extends State<NewsScreen> {
 
                 for (var i = 0; i < 5; i++) {
                   titles.insert(i,articles[i]["title"]);
+                  descriptions.insert(i,articles[i]["description"]);
+                  urlToImages.insert(i,articles[i]["urlToImage"]);
+
                 }
                 // titles.insert(0,articles[0]["title"]);
 
@@ -89,25 +94,25 @@ class _NewsScreenState extends State<NewsScreen> {
                 });
               },
             ),
-            Image.network(urlToImage),
+            Image.network(urlToImages[0]),
             Card(
               child: ListTile(
                 title: Text(titles[0]),
-                subtitle: Text(description),
+                subtitle: Text(descriptions[0]),
               ),
             ),
-            Image.network(urlToImage2),
+            Image.network(urlToImages[1]),
             Card(
               child: ListTile(
                 title: Text(titles[1]),
-                subtitle: Text(description2),
+                subtitle: Text(descriptions[1]),
               ),
             ),
-            Image.network(urlToImage2),
+            Image.network(urlToImages[2]),
             Card(
               child: ListTile(
                 title: Text(titles[2]),
-                subtitle: Text(description2),
+                subtitle: Text(descriptions[3]),
               ),
             ),
           ],
