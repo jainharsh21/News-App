@@ -16,13 +16,14 @@ class _NewsScreenState extends State<NewsScreen> {
   String topicName;
   List titles;
   String title="";
+  String description = "";
   _NewsScreenState(this.topicName);
 
   void showData() async {
     news = await getNews(util.apiId, topicName.toLowerCase());
     articles = news["articles"];
     title = articles[0]["title"];
-  
+    description = articles[0]["description"];    
   }
 
   @override
@@ -56,18 +57,23 @@ class _NewsScreenState extends State<NewsScreen> {
                 // titles.add(news['articles'][0]['title']);
                 articles = news["articles"];
                 title = articles[0]["title"];
+                description = articles[0]["description"];    
+
                 print(articles[0]['title']);
                 setState(() {
                   if (!mounted) return;
                   title = title;
+                  description = description;
                 });
               },
             ),
             Card(
               child: ListTile(
                 title: Text(title),
+                subtitle: Text(description),
               ),
             )
+            
           ],
         ));
   }
