@@ -18,7 +18,9 @@ class _NewsScreenState extends State<NewsScreen> {
 
   void showData() async {
     Map news  = await getNews(util.apiId, util.defaultNews);
-    print(news.toString());
+    List articles = news["articles"];
+    // print(news.toString());
+    print(articles);
   }
 
   @override
@@ -37,7 +39,7 @@ class _NewsScreenState extends State<NewsScreen> {
           fontWeight: FontWeight.bold,
         ),),
         centerTitle: true,
-        backgroundColor: Colors.purple[700],
+        backgroundColor: Colors.black,
       ),
     );
   }

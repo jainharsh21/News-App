@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
       itemBuilder: (BuildContext context ,int index){
         return GestureDetector(
           child: Card(
-            color: Colors.purple,
+            color: Colors.black,
             margin: EdgeInsets.fromLTRB(16, 25, 17, 0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0)
@@ -52,7 +52,7 @@ class _HomeState extends State<Home> {
           fontSize: 35.0,
         ),),
         centerTitle: true,
-        backgroundColor: Colors.purple[700],
+        backgroundColor: Colors.black,
       ),
       body: myGridView,
       
